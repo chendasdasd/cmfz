@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.AdminDao">
+     <insert id="insertAdmin">
+         insert into t_admin values(#{mgr_id},#{mgr_name},#{mgr_pwd},#{salt},#{status})
+     </insert>
+
+    <select id="selectByName" resultType="Admin">
+        select * from t_admin where mgr_name=#{0}
+    </select>
+
+    <update id="updatePwd">
+        update t_admin set mgr_pwd=#{mgr_pwd},salt=#{salt} where mgr_id=#{mgr_id}
+    </update>
+</mapper>
