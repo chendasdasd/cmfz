@@ -44,7 +44,7 @@
 								用户名:
 							</th>
 							<td>
-								<input type="text"  name="mgr_name" class="text" value="" maxlength="20"/>
+								<input type="text"  name="mgr_name" class="text" value="${cookie.username.value}" maxlength="20"/>
 							</td>
 					  </tr>
 					  <tr>
@@ -73,7 +73,7 @@
 						</th>
 						<td>
 							<label>
-								<input type="checkbox" id="isRememberUsername" value="true"/> 记住用户名
+								<input type="checkbox" name="cbx" id="isRememberUsername" value="true" checked="checked"/> 记住用户名
 							</label>
 						</td>
 					</tr>

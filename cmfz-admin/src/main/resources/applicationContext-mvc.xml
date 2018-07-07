@@ -23,8 +23,16 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!--过滤静态资源-->
-    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <bean id='beanNameViewResolver' class='org.springframework.web.servlet.view.BeanNameViewResolver'></bean>
+    <context:component-scan base-package='org.jeecgframework.poi.excel.view'></context:component-scan>
+
+    <!--视图解析器-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/"></property>
+    </bean>
+
+
 
     <!--文件上传的bean-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -33,10 +41,7 @@
         <!--<property name="maxUploadSize" value=""></property>-->
     </bean>
 
-    <!--视图解析器-->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="suffix" value=".jsp"></property>
-        <property name="prefix" value="/"></property>
-    </bean>
+    <!--过滤静态资源-->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
 
 </beans>

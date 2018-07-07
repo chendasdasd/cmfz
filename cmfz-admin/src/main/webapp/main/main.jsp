@@ -6,11 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>持名法州主页</title>
 <link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">   
-<link rel="stylesheet" type="text/css" href="../themes/icons.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../themes/IconExtension.css">
 <script type="text/javascript" src="../js/jquery.min.js"></script>   
-<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>  
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../js/datagrid-detailview.js"></script>
 <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript">
 
 	function addTab(menu_name,menu_url,menu_icon){
 	    //创建选项卡面板
@@ -22,6 +24,7 @@
 		    $("#tt").tabs("add",{
 				title:menu_name,
 				iconCls:menu_icon,
+				href:"${pageContext.request.contextPath}/"+menu_url,
 				closable:true,
 			});
 		}
@@ -111,8 +114,8 @@
 		</div>  
     </div>   
     <div data-options="region:'center'">
-    	<div id="tt" class="easyui-tabs" data-options="fit:true,narrow:true,pill:true">   
-		    <div title="主页" data-options="iconCls:'icon-neighbourhood',"  style="background-image:url(/main/image/shouye.jpg);background-repeat: no-repeat;background-size:100% 100%;"></div>
+    	<div id="tt" class="easyui-tabs" data-options="fit:true,narrow:true,pill:true">
+		    <div title="主页" data-options="iconCls:'icon-neighbourhood',"  style="background-image:url(${pageContext.request.contextPath}/main/image/shouye.jpg);background-repeat: no-repeat;background-size:100% 100%;"></div>
 		</div>  
     </div>
 

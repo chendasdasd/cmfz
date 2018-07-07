@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.MasterDao">
+
+     <select id="selectAll" resultType="Master">
+         select m.*
+         from (select * from t_master where master_name like #{word}) m
+         LIMIT #{begin},#{rows}
+     </select>
+
+    <select id="selectAllRows" resultType="int">
+        select count(*) from t_master where master_name like #{0}
+    </select>
+
+     <insert id="insertMaster">
+         insert into t_master values(#{master_id},#{master_name},#{master_photo},#{introduce})
+     </insert>
+
+    <update id="updateMaster">
+        update t_master set master_name=#{master_name},master_photo=#{master_photo},introduce=#{introduce} where master_id=#{master_id}
+    </update>
+
+</mapper>
