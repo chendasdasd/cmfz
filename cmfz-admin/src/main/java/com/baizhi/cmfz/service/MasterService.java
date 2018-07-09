@@ -2,6 +2,7 @@ package com.baizhi.cmfz.service;
 
 import com.baizhi.cmfz.entity.Master;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,4 +16,7 @@ public interface MasterService {
 
     public void changeMaster(Master master);
 
+    public List<Master> allMaster();
+
+    public String findOne(String master_id);
 }

@@ -20,4 +20,11 @@
         update t_master set master_name=#{master_name},master_photo=#{master_photo},introduce=#{introduce} where master_id=#{master_id}
     </update>
 
+    <select id="selectAllMaster" resultType="Master">
+        select * from t_master
+    </select>
+
+    <select id="selectById" resultType="String">
+        select master_name from t_master where master_id=#{0}
+    </select>
 </mapper>

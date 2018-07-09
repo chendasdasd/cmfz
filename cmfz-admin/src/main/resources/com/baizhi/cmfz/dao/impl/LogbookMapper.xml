@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.LogbookDao">
+
+    <resultMap id="LogbookMap" type="Logbook">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="action_time" property="actionTime"/>
+        <result column="resource" property="resource"/>
+        <result column="action" property="action"/>
+        <result column="message" property="message"/>
+    </resultMap>
+
+     <insert id="insertLogbook">
+         insert into t_logbook(id,user_name,resource,action,message)
+         values(#{id},#{userName},#{resource},#{action},#{message})
+     </insert>
+
+
+     <select id="selectAll"  resultMap="LogbookMap">
+        select * from t_logbook limit #{page},#{rows}
+     </select>
+
+</mapper>

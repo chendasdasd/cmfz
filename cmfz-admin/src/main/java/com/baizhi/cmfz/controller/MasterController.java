@@ -112,4 +112,10 @@ public class MasterController {
         }
 
     }
+
+    @RequestMapping("/allMaster")
+    @ResponseBody
+    public List<Master> theMasters(){
+        return masterService.allMaster();
+    }
 }

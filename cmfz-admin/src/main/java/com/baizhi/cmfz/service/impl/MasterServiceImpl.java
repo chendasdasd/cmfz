@@ -47,4 +47,16 @@ public class MasterServiceImpl implements MasterService {
         masterDao.updateMaster(master);
     }
 
+    @Override
+    public List<Master> allMaster() {
+        return masterDao.selectAllMaster();
+    }
+
+    @Override
+    public String findOne(String master_id) {
+        String master_name = masterDao.selectById(master_id);
+
+        return master_name;
+    }
+
 }

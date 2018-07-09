@@ -59,7 +59,7 @@ public class PictureController {
     @ResponseBody
     public String changePicture(String picture_id,String picture_desc,String picture_status){
 
-        pis.updatePicture(picture_id, picture_desc, picture_status);
+        pis.changePicture(picture_id, picture_desc, picture_status);
 
         return "success";
     }

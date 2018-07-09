@@ -15,7 +15,7 @@ import java.util.List;
 public class MenuTest {
 
     @Test
-    public void test1(){
+    public void test1() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         MenuService menuService = (MenuService) ctx.getBean("menuServiceImpl");
@@ -30,4 +30,6 @@ public class MenuTest {
         System.out.println(s);
 
     }
+
+
 }

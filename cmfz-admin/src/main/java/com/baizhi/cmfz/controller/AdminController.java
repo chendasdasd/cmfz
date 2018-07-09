@@ -83,6 +83,7 @@ public class AdminController {
 
         adminService.changePwd(mgr_id,mgr_pwd);
 
+
     }
 
 }

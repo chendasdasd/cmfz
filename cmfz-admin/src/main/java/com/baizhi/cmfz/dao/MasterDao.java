@@ -18,4 +18,8 @@ public interface MasterDao {
 
     public void updateMaster(Master master);
 
+    public List<Master> selectAllMaster();
+
+    public String selectById(String master_id);
+
 }

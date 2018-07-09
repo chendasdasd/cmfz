@@ -13,6 +13,6 @@ public interface PictureService {
 
     public void addPicture(Picture picture);
 
-    public void updatePicture(String p_id,String p_desc,String p_status);
+    public void changePicture(String p_id,String p_desc,String p_status);
 
 }

@@ -48,7 +48,7 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public void updatePicture(String p_id, String p_desc, String p_status) {
+    public void changePicture(String p_id, String p_desc, String p_status) {
         pictureDao.updatePic(p_id, p_desc, p_status);
     }
 }
