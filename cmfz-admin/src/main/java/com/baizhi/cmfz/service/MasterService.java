@@ -12,9 +12,9 @@ public interface MasterService {
 
     public Map<String,Object> findAllMaster(Integer nowPage,Integer pageIndex,String master_name);
 
-    public void addMaster(Master master);
+    public int addMaster(Master master);
 
-    public void changeMaster(Master master);
+    public int changeMaster(Master master);
 
     public List<Master> allMaster();
 

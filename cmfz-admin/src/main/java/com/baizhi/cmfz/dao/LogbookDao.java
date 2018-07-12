@@ -14,4 +14,5 @@ public interface LogbookDao {
 
     public List<Logbook> selectAll(@Param("page") Integer page,@Param("rows") Integer rows);
 
+    public int allRows();
 }

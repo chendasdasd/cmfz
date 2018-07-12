@@ -14,9 +14,9 @@ public interface MasterDao {
 
     public int selectAllRows(String word);
 
-    public void insertMaster(Master master);
+    public int insertMaster(Master master);
 
-    public void updateMaster(Master master);
+    public int updateMaster(Master master);
 
     public List<Master> selectAllMaster();
 

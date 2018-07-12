@@ -20,7 +20,7 @@ public interface ArticleDao {
      */
     public List<Article> selectByPage(@Param("page")Integer pagem, @Param("rows") Integer rows);
 
-    public void updateArticle(Article article);
+    public int updateArticle(Article article);
 
     public int allRows();
 }

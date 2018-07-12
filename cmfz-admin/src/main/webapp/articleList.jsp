@@ -14,7 +14,7 @@
             columns:[[{
                 title:"文章编号",
                 field:"article_id",
-                width:240,
+                width:260,
                 align:"center"
             },{
                 title:"文章标题",
@@ -24,17 +24,17 @@
             },{
                 title:"文章状态",
                 field:"status",
-                width:100,
+                width:90,
                 align:"center"
             },{
                 title:"创作时间",
                 field:"date",
-                width:160,
+                width:170,
                 align:"center"
             },{
                 title:"所属上师",
                 field:"master_name",
-                width:240,
+                width:220,
                 align:"center"
             }]],
             width:1000,

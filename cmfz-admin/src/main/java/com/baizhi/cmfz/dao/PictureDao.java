@@ -14,7 +14,7 @@ public interface PictureDao {
 
     public int selectAllRows();
 
-    public void insertPic(Picture picture);
+    public int insertPic(Picture picture);
 
-    public void updatePic(@Param("pic_id") String pic_id,@Param("pic_desc") String pic_desc,@Param("pic_status") String pic_status);
+    public int updatePic(@Param("pic_id") String pic_id,@Param("pic_desc") String pic_desc,@Param("pic_status") String pic_status);
 }

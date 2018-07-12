@@ -11,8 +11,8 @@ public interface PictureService {
 
     public Map<String ,Object> findAll(Integer begin,Integer rows);
 
-    public void addPicture(Picture picture);
+    public int addPicture(Picture picture);
 
-    public void changePicture(String p_id,String p_desc,String p_status);
+    public int changePicture(String p_id,String p_desc,String p_status);
 
 }

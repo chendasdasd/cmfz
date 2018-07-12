@@ -24,13 +24,13 @@ public class AdminTest {
 
     @Test
     public void test2(){
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        /*ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         AdminService as= (AdminService) ctx.getBean("adminServiceImpl");
 
         Admin admin = as.login("Curry", "123456");
 
-        System.out.println(admin);
+        System.out.println(admin);*/
 
     }
 }

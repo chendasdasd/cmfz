@@ -16,5 +16,5 @@ public interface ArticleService {
      */
     public Map<String ,Object> showByPage(Integer page, Integer rows);
 
-    public void changeArticle(Article article);
+    public int changeArticle(Article article);
 }

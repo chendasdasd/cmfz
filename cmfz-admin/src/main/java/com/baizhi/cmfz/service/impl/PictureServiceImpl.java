@@ -39,16 +39,16 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public void addPicture(Picture picture) {
+    public int addPicture(Picture picture) {
         String uuid= UUID.randomUUID().toString().replaceAll("-", "");
 
         picture.setPicture_id(uuid);
 
-        pictureDao.insertPic(picture);
+        return pictureDao.insertPic(picture);
     }
 
     @Override
-    public void changePicture(String p_id, String p_desc, String p_status) {
-        pictureDao.updatePic(p_id, p_desc, p_status);
+    public int changePicture(String p_id, String p_desc, String p_status) {
+        return pictureDao.updatePic(p_id, p_desc, p_status);
     }
 }

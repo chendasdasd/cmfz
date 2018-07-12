@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public interface LogbookService {
 
-    public void addLogbook(Logbook logbook);
+    public void insertLogbook(Logbook logbook);
 
     public Map<String ,Object> showByPage(Integer page,Integer rows);
 

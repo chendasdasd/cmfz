@@ -1,6 +1,9 @@
 package com.baizhi.cmfz.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by 陈少 on 2018/7/9.
@@ -8,23 +11,25 @@ import java.io.Serializable;
 public class Logbook implements Serializable{
     private String id;
     private String userName;
-    private String actionTime;
+    @JSONField(format = "yyyy-MM-dd hh:mm:ss")
+    private Date actionTime;
     private String resource;
     private String action;
     private String message;
+    private String result;
 
     public Logbook() {
     }
 
-    public Logbook(String id, String userName, String actionTime, String resource, String action, String message) {
+    public Logbook(String id, String userName, Date actionTime, String resource, String action, String message, String result) {
         this.id = id;
         this.userName = userName;
         this.actionTime = actionTime;
         this.resource = resource;
         this.action = action;
         this.message = message;
+        this.result = result;
     }
-
 
     public String getId() {
         return id;
@@ -42,11 +47,11 @@ public class Logbook implements Serializable{
         this.userName = userName;
     }
 
-    public String getActionTime() {
+    public Date getActionTime() {
         return actionTime;
     }
 
-    public void setActionTime(String actionTime) {
+    public void setActionTime(Date actionTime) {
         this.actionTime = actionTime;
     }
 
@@ -74,15 +79,11 @@ public class Logbook implements Serializable{
         this.message = message;
     }
 
-    @Override
-    public String toString() {
-        return "Logbook{" +
-                "id='" + id + '\'' +
-                ", userName='" + userName + '\'' +
-                ", actionTime='" + actionTime + '\'' +
-                ", resource='" + resource + '\'' +
-                ", action='" + action + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 }

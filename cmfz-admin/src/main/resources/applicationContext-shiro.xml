@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--shiro的过滤器工厂对象 负责权限的校验 处理请求的bean-->
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.jsp"/>
+        <property name="unauthorizedUrl" value="/error.jsp"/>
+        <!--
+            定义过滤器链的拦截规则
+            过滤器：filter 请求和响应应做预处理的
+            Filter 接口 3个 doFilter(req,resp,chain)
+                                chain.doFilter(req,resp)
+        -->
+        <property name="filterChainDefinitions">
+            <value>
+                /admin/login=anon
+                /css/**=anon
+                /js/**=anon
+                /img/**=anon
+                /main/image/**=anon
+                /script/**=anon
+                /themes/**=anon
+                /admin/getCode=anon
+                /login.jsp=anon
+                /main/main.jsp=user
+                /**=user
+            </value>
+        </property>
+    </bean>
+
+    <!--初始化web环境下的安全管理器-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realms">
+            <list>
+                <ref bean="myRealm"></ref>
+            </list>
+        </property>
+        <!--请记住我管理器 实现记住我功能-->
+        <property name="rememberMeManager" ref="rememberMeManager"/>
+
+        <!--缓存管理器-->
+        <property name="cacheManager" ref="ehCacheManager"></property>
+    </bean>
+
+    <!--
+        ehcache 缓存框架  一般适用于本地缓存
+    -->
+   <bean id="ehCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"></property>
+    </bean>
+
+    <!--声明记住我管理器-->
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="simpleCookie"/>
+    </bean>
+
+    <!--对记住我的cookie配置-->
+    <bean id="simpleCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <!--cookie名称-->
+        <property name="name" value="rm"/>
+        <property name="maxAge" value="604800"/>
+        <property name="path" value="/"/>
+    </bean>
+
+    <bean id="myRealm" class="com.baizhi.cmfz.utils.MyRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+    <!--声明复杂的凭证匹配器对象-->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="512"/>
+    </bean>
+
+</beans>

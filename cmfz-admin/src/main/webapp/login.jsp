@@ -73,7 +73,7 @@
 						</th>
 						<td>
 							<label>
-								<input type="checkbox" name="cbx" id="isRememberUsername" value="true" checked="checked"/> 记住用户名
+								<input type="checkbox" name="rememberMe" id="isRememberUsername" value="true" checked="checked"/> 七天免登录
 							</label>
 						</td>
 					</tr>

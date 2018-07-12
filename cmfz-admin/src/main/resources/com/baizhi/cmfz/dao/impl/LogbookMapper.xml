@@ -9,16 +9,21 @@
         <result column="resource" property="resource"/>
         <result column="action" property="action"/>
         <result column="message" property="message"/>
+        <result column="result" property="result"/>
     </resultMap>
 
      <insert id="insertLogbook">
-         insert into t_logbook(id,user_name,resource,action,message)
-         values(#{id},#{userName},#{resource},#{action},#{message})
+         insert into t_logbook(id,user_name,resource,action,message,result)
+         values(#{id},#{userName},#{resource},#{action},#{message},#{result})
      </insert>
 
 
-     <select id="selectAll"  resultMap="LogbookMap">
+    <select id="selectAll"  resultMap="LogbookMap">
         select * from t_logbook limit #{page},#{rows}
+     </select>
+
+     <select id="allRows" resultType="int">
+         select count(*) from t_logbook
      </select>
 
 </mapper>

@@ -38,13 +38,13 @@ public class MasterServiceImpl implements MasterService {
     }
 
     @Override
-    public void addMaster(Master master) {
-        masterDao.insertMaster(master);
+    public int addMaster(Master master) {
+        return masterDao.insertMaster(master);
     }
 
     @Override
-    public void changeMaster(Master master) {
-        masterDao.updateMaster(master);
+    public int changeMaster(Master master) {
+        return masterDao.updateMaster(master);
     }
 
     @Override

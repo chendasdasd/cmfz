@@ -9,7 +9,7 @@ public interface AdminService {
 
     public void register(Admin admin);
 
-    public Admin login(String name ,String password);
+    public Admin login(String name);
 
-    public void changePwd(String mgr_id,String newPwd);
+    public void changeAdmin(String mgr_id,String newPwd);
 }

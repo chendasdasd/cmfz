@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro"%>
 
 <script type="text/javascript">
     $(function(){
@@ -208,11 +209,17 @@
 
 
 <div id="masterTool" style="display:none">
-    <a id="insertMaster" class="easyui-linkbutton" data-options="iconCls:'icon-picture',text:'添加上师'"></a>
+    <shiro:hasPermission name="user:add">
+        <a id="insertMaster" class="easyui-linkbutton" data-options="iconCls:'icon-picture',text:'添加上师'"></a>
+    </shiro:hasPermission>
     &nbsp;&nbsp;&nbsp;
-    <a id="updateMaster" class="easyui-linkbutton" data-options="iconCls:'icon-edit',text:'修改上师信息'"></a>
+    <shiro:hasPermission name="user:change">
+        <a id="updateMaster" class="easyui-linkbutton" data-options="iconCls:'icon-edit',text:'修改上师信息'"></a>
+    </shiro:hasPermission>
     &nbsp;&nbsp;&nbsp;
-    <a id="batchMaster" class="easyui-linkbutton" data-options="iconCls:'icon-group',text:'批量添加'"></a>
+    <shiro:hasPermission name="user:add">
+        <a id="batchMaster" class="easyui-linkbutton" data-options="iconCls:'icon-group',text:'批量添加'"></a>
+    </shiro:hasPermission>
 
     &nbsp;&nbsp;&nbsp;
     <input id="select" class="easyui-searchbox" style="width:220px"

@@ -35,22 +35,18 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Admin login(String name, String password) {
+    public Admin login(String name) {
 
         Admin admin = adminDao.selectByName(name);
 
         if (admin!=null){
-            String nowPwd=SaltUtils.encryptionCode(password+admin.getSalt());
-
-            if (nowPwd.equals(admin.getMgr_pwd())){
-                return admin;
-            }
+            return admin;
         }
         return null;
     }
 
     @Override
-    public void changePwd(String mgr_id, String newPwd) {
+    public void changeAdmin(String mgr_id, String newPwd) {
 
         String salt=SaltUtils.getRandomSalt(6);
         String pwd=SaltUtils.encryptionCode(newPwd+salt);
